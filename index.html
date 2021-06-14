@@ -10,8 +10,9 @@
 <body>
 
 <center><h1>Naslov</h1></center>
-<center><button>Dugme</button></center>
-
+<center><button id="prvo">Dugme</button></center>
+<br>
+<center><button id="drugo">Dugme 2</button></center>
 
 </body>
 
@@ -19,9 +20,15 @@
 </html>
 <script>
 $(document).ready(function(){
-	$('button').click(function(){
+	$('#prvo').click(function(){
 		$('h1').css('color', 'green');
 		$('h1').after('<h2>AJAX</h2>')
 	});
+	$('#drugo').click(function(){
+		$.get("lokacija/lokacija.php", function(data){
+			$('h2').after('<center>'+data+'</center>');
+		});
+	});
+
 });
 </script>
